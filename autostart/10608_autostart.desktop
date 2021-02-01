@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=10608_Power to Explore
+Type=Application
+Comment=Some comment
+Exec=/usr/bin/python /home/pi/10608/10608_main.py
