@@ -1,7 +1,6 @@
 import RPi.GPIO as GPIO
 import time
 import pygame
-from itertools import chain
 
 DEBUG = True
 
@@ -37,6 +36,20 @@ TEXTS = {
     'Space': ["Select a planet and choose your energy to travel.","Select a planet and choose your energy to travel.","Select a planet and choose your energy to travel."]
 }
 
+PLANET_LIGHT = {
+	'Sun': ["out","out","out"],
+    'Mercury': ["red","green","green"],
+    'Venus': ["green","green","green"],
+    'Earth': ["red","green","green"],
+    'Mars': ["green","green","green"],
+    'Jupiter': ["green","green","green"],
+    'Saturn': ["green","green","red"],
+    'Uranus': ["green","red","red"],
+    'Neptune':["green","red","red"],
+    'Kuiper Belt': ["red","green","green"],
+    'Space': ["out","out","out"]
+}
+
 GRAYCODE_TABLE = [
     '0000',
     '1000',
@@ -53,14 +66,17 @@ GRAYCODE_TABLE = [
 
 BUTTON_NAMES    = ['NUCLEAR', 'BATTERY', 'SOLAR', 'INFEASIBLE']
 BUTTON_PINS_IN  = [ 4, 17, 27, 22]
-BUTTON_PINS_OUT = [ 5,  6, 13, 19]
+BUTTON_PINS_OUT = [ 5,  6, 13, 19, 26]
 GRAYCODE_PINS = [25, 18, 23, 24]
 
 ##################################
 RUNNING        = False
 global start_time
 global last_grayCode
+global timeoutRunning
 
+timeoutRunning = True
+start_time = time.time()
 last_grayCode = '0000'
 ##################################
 
@@ -125,19 +141,30 @@ def changeLight(_index):
     if _index < len(BUTTON_PINS_OUT) and _index > -1:
         GPIO.output(BUTTON_PINS_OUT[_index], 1)          
 
-def turnOnAllLights():
+def turnAllLights(onoff):
     for pin in BUTTON_PINS_OUT:
-        GPIO.output(pin, 1)
-	
+        GPIO.output(pin, onoff)
+    GPIO.output(BUTTON_PINS_OUT[3], 0)
+    GPIO.output(BUTTON_PINS_OUT[4], 0)
+
+def blinkLights():
+	global timeoutRunning
+	if (timeoutRunning):
+		print("blink")
+		time.sleep(0.5)
+		turnAllLights(0)
+		time.sleep(0.5)
+		turnAllLights(1)
 
 def init():
 	global screen
 	global font
 	
 	pygame.init()
+	pygame.mouse.set_cursor((8,8),(0,0),(0,0,0,0,0,0,0,0),(0,0,0,0,0,0,0,0))
 	screen = pygame.display.set_mode((800,480), pygame.NOFRAME)
 	
-	font = pygame.font.Font(pygame.font.match_font('FS Aldrin'), 16)
+	font = pygame.font.Font(pygame.font.match_font('FS Aldrin'), 32)
 	
 	GPIO.setmode(GPIO.BCM)
 	
@@ -149,8 +176,11 @@ def init():
 	
 	for pin in BUTTON_PINS_OUT:
 		print(pin)
-		GPIO.setup(pin, GPIO.OUT)
-		GPIO.output(pin, 0)
+		#print(GPIO.RPI_INFO)
+		GPIO.setup(pin, GPIO.OUT, initial=GPIO.HIGH)
+		print(GPIO.input(pin))
+		#GPIO.output(pin, 1)
+
 
 def makeGrayCodeString(arr):
 	str1 = ""
@@ -166,13 +196,33 @@ def findChosenPlanet(_str):
 			str_planet = str(PLANET_NAME[ind])
 	return str_planet
 
-def findCorrectText(pl, _txts):
+def findCorrectText(pl, _txts, _lights):
 	_txt = TEXTS['SCREENSAVER']
 	for i in range(len(BUTTON_PINS_IN)):
 		if GPIO.input(BUTTON_PINS_IN[i]):
 			_txt = _txts[i]
-			changeLight(3)
+			if (_lights[i] == "red"):
+				changeLight(3)
+			elif (_lights[i] == "green"):
+				changeLight(4)
+			else:
+				turnAllLights(0)
 	return _txt
+
+def timeout():
+	global start_time
+	global timeoutRunning
+	timeout_seconds = 5
+	
+	now_time = time.time()
+	elapsed_time = now_time - start_time
+	
+	if (elapsed_time >= timeout_seconds):
+		start_time = time.time()
+		timeoutRunning = True
+		print("timeout")
+	else:
+		timeoutRunning = False
 
 def update():
 	global start_time
@@ -186,9 +236,11 @@ def update():
 		#drawText(screen, "GREYCODE " +str(i), 200, 300+i*10, font, pygame.Color("#ffffff"), False)
 		
 		if GPIO.input(BUTTON_PINS_IN[i]):
-			print(BUTTON_NAMES[i])
-			turnOnAllLights()
+			#print(BUTTON_NAMES[i])
+			start_time = time.time()
+			#turnAllLights(0)
 			drawText(screen, BUTTON_NAMES[i] + str(BUTTON_PINS_IN[i]), 400, 20+i*10, font, pygame.Color("#ffffff"), False)
+			changeLight(i)
 
 		if GPIO.input(GRAYCODE_PINS[i]):
 			#drawText(screen, "GREYCODE " + str(GRAYCODE_PINS[i]), 400, 300+i*10, font, pygame.Color("#ffffff"), False)
@@ -208,10 +260,15 @@ def update():
 	else:
 		#print(str_graycode)
 		planet = findChosenPlanet(str_graycode)
+		if (planet == "Kuiper Belt" or planet == "Sun" or planet == "Space"):
+			turnAllLights(0)
+		else:
+			turnAllLights(1)
 		text_arr = TEXTS[planet]
-		turnOnAllLights()
+		light_arr = PLANET_LIGHT[planet]
+		
 		drawText(screen, "PLANET "+ planet, 50, 100, font, pygame.Color("#000000"), False)
-		planettext = findCorrectText(planet, text_arr)
+		planettext = findCorrectText(planet, text_arr, light_arr)
     	#drawText(screen, planettext, 50, 150, font, pygame.Color("#ffffff"), False)
     	textbox = pygame.Rect(50,150, 500, 100)
     	drawTextBox(screen, planettext, pygame.Color("#000000"), textbox, font, True)
@@ -230,10 +287,13 @@ if __name__ == '__main__':
 
 while RUNNING:
 	update()
+	timeout()
+	blinkLights()
 	
 	for event in pygame.event.get():
 		if (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
 			RUNNING = False
 			pygame.quit()
 			GPIO.cleanup()
+	pygame.time.Clock().tick(FPS)
 
