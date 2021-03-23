@@ -46,7 +46,7 @@ PLANET_LIGHT = {
     'Saturn': ["green","green","red"],
     'Uranus': ["green","red","red"],
     'Neptune':["green","red","red"],
-    'Kuiper Belt': ["red","green","green"],
+    'Kuiper Belt': ["out","out","out"],
     'Space': ["out","out","out"]
 }
 
@@ -164,7 +164,7 @@ def init():
 	pygame.mouse.set_cursor((8,8),(0,0),(0,0,0,0,0,0,0,0),(0,0,0,0,0,0,0,0))
 	screen = pygame.display.set_mode((800,480), pygame.NOFRAME)
 	
-	font = pygame.font.Font(pygame.font.match_font('FS Aldrin'), 32)
+	font = pygame.font.Font(pygame.font.match_font('FS Aldrin'), 45)
 	
 	GPIO.setmode(GPIO.BCM)
 	
@@ -260,17 +260,17 @@ def update():
 	else:
 		#print(str_graycode)
 		planet = findChosenPlanet(str_graycode)
-		if (planet == "Kuiper Belt" or planet == "Sun" or planet == "Space"):
+		if (planet == "Kuiper Belt" or planet == "Sun" or planet =="Space"):
 			turnAllLights(0)
 		else:
 			turnAllLights(1)
 		text_arr = TEXTS[planet]
 		light_arr = PLANET_LIGHT[planet]
 		
-		drawText(screen, "PLANET "+ planet, 50, 100, font, pygame.Color("#000000"), False)
+		drawText(screen, ""+ planet, 50, 30, font, pygame.Color("#000000"), False)
 		planettext = findCorrectText(planet, text_arr, light_arr)
     	#drawText(screen, planettext, 50, 150, font, pygame.Color("#ffffff"), False)
-    	textbox = pygame.Rect(50,150, 500, 100)
+    	textbox = pygame.Rect(50,100, 700, 300)
     	drawTextBox(screen, planettext, pygame.Color("#000000"), textbox, font, True)
     	
 	pygame.display.update()
