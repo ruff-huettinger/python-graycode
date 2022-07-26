@@ -8,90 +8,90 @@ COLOR_BG = '#ffffff'
 FPS = 25
 
 PLANET_NAME = [
-    'Sun',
-    'Mercury',
-    'Venus',
-    'Earth',
-    'Mars',
-    'Jupiter',
-    'Saturn',
-    'Uranus',
-    'Neptune',
-    'Kuiper Belt',
-    'Space'
+	'Sun',
+	'Mercury',
+	'Venus',
+	'Earth',
+	'Mars',
+	'Jupiter',
+	'Saturn',
+	'Uranus',
+	'Neptune',
+	'Kuiper Belt',
+	'Space'
 ]
 
 TEXTS = {
-    'SCREENSAVER' : "Select a planet and choose your energy to travel.",
-    'Sun': ["Select a planet and choose your energy to travel.",
-            "Select a planet and choose your energy to travel.",
-            "Select a planet and choose your energy to travel."],
-    'Mercury': ["No need to use nuclear energy at Mercury, where sunlight is very abundant.",
-                "Only small batteries needed for when spacecraft is in the shadow of Mercury.",
-                "Solar panels provided all the power needed at Mercury. In fact, the sun is so powerful that the spacecraft needs to be shielded from sunlight (see Mariner 10 suspended spacecraft and the MESSENGER model)."],
-    'Venus': ["Nuclear energy would be needed for a lander lasting more than a few hours, but orbiters can use abundant sunlight for power.",
-              "Only small batteries needed for when spacecraft is in the shadow of Venus.",
-              "Solar panels can provided power to Magellan in orbit around Venus, where sunlight is abundant.  Soviet landers used battery power to operate for a couple of hours before the intense heat destroyed the electronics. "],
-    'Earth': ["Nuclear energy was used for some military satellites orbiting Earth, but its hazards upon falling to Earth make this a bad option.",
-              "Only small batteries needed for when spacecraft is in the shadow of the Earth.",
-              "Solar panels can provide needed power in orbit at Earth, where sunlight is plentiful."],
-    'Mars': ["Nuclear energy was used on the Curiosity rover, allowing it to operate some instruments during the night.  See Curiosity model in Rocky Planets section.",
-             "Good batteries were used on the MER rovers, to keep the spacecraft warm through the cold nights.  See MER model in Rocky Planets section.",
-             "Solar panels provide power to numerous spacecraft while in orbit around Mars, where sunlight is still strong.  The MER rovers used solar panels to operate during the day and to charge batteries for the night.  However, dust build-up on solar panels is a big problem for long-term surface operations on Mars."],
-    'Jupiter': ["Nuclear energy was critical to power the Voyager missions to the outer planets.  The Galileo also used decaying nuclear material to power its orbital mission at Jupiter.",
-                "Batteries are needed for when spacecraft is in the shadow of Jupiter or its large moons.", "Huge solar panels powered the Juno orbiter at Jupiter, the only spacecraft so far to use solar panels this far from the sun."],
-    'Saturn': ["Nuclear energy was critical to power the Voyager missions to Saturn, as well as the Cassini mission that orbited Saturn for many years.",
-               "Batteries are needed for when spacecraft is in the shadow of Saturn or its large moons.",
-               "Solar panels could not provide enough electricity to power spacecraft at Saturn or beyond.  Sunlight is not strong enough far from the sun to provide much power."],
-    'Uranus': ["Nuclear energy was critical to power the Voyager 2 mission when it flew by Uranus in 1986.",
-               "Batteries cannot store enough energy to operate much equipment at great distances from the sun.",
-               "Solar panels could not provide enough electricity to power spacecraft at Uranus or beyond.  Sunlight is not strong enough far from the sun to provide much power."],
-    'Neptune':["Nuclear energy was critical to power the Voyager 2 mission when it flew by Neptune in 1989.",
-               "Batteries cannot store enough energy to operate much equipment at great distances from the sun.",
-               "Solar panels could not provide enough electricity to power spacecraft at Neptune or beyond.  Sunlight is not strong enough far from the sun to provide much power."],
-    'Kuiper Belt': ["Select a planet and choose your energy to travel.",
-                    "Select a planet and choose your energy to travel.",
-                    "Select a planet and choose your energy to travel."],
-    'Space': ["Select a planet and choose your energy to travel.",
-              "Select a planet and choose your energy to travel.",
-              "Select a planet and choose your energy to travel."]
+	'SCREENSAVER' : "Select a planet and choose your energy to travel.",
+	'Sun': ["Select a planet and choose your energy to travel.",
+			"Select a planet and choose your energy to travel.",
+			"Select a planet and choose your energy to travel."],
+	'Mercury': ["No need to use nuclear energy at Mercury, where sunlight is very abundant.",
+				"Only small batteries needed for when spacecraft is in the shadow of Mercury.",
+				"Solar panels provided all the power needed at Mercury. In fact, the sun is so powerful that the spacecraft needs to be shielded from sunlight (see Mariner 10 suspended spacecraft and the MESSENGER model)."],
+	'Venus': ["Nuclear energy would be needed for a lander lasting more than a few hours, but orbiters can use abundant sunlight for power.",
+			  "Only small batteries needed for when spacecraft is in the shadow of Venus.",
+			  "Solar panels can provided power to Magellan in orbit around Venus, where sunlight is abundant.  Soviet landers used battery power to operate for a couple of hours before the intense heat destroyed the electronics. "],
+	'Earth': ["Nuclear energy was used for some military satellites orbiting Earth, but its hazards upon falling to Earth make this a bad option.",
+			  "Only small batteries needed for when spacecraft is in the shadow of the Earth.",
+			  "Solar panels can provide needed power in orbit at Earth, where sunlight is plentiful."],
+	'Mars': ["Nuclear energy was used on the Curiosity rover, allowing it to operate some instruments during the night.  See Curiosity model in Rocky Planets section.",
+			 "Good batteries were used on the MER rovers, to keep the spacecraft warm through the cold nights.  See MER model in Rocky Planets section.",
+			 "Solar panels provide power to numerous spacecraft while in orbit around Mars, where sunlight is still strong.  The MER rovers used solar panels to operate during the day and to charge batteries for the night.  However, dust build-up on solar panels is a big problem for long-term surface operations on Mars."],
+	'Jupiter': ["Nuclear energy was critical to power the Voyager missions to the outer planets.  The Galileo also used decaying nuclear material to power its orbital mission at Jupiter.",
+				"Batteries are needed for when spacecraft is in the shadow of Jupiter or its large moons.", "Huge solar panels powered the Juno orbiter at Jupiter, the only spacecraft so far to use solar panels this far from the sun."],
+	'Saturn': ["Nuclear energy was critical to power the Voyager missions to Saturn, as well as the Cassini mission that orbited Saturn for many years.",
+			   "Batteries are needed for when spacecraft is in the shadow of Saturn or its large moons.",
+			   "Solar panels could not provide enough electricity to power spacecraft at Saturn or beyond.  Sunlight is not strong enough far from the sun to provide much power."],
+	'Uranus': ["Nuclear energy was critical to power the Voyager 2 mission when it flew by Uranus in 1986.",
+			   "Batteries cannot store enough energy to operate much equipment at great distances from the sun.",
+			   "Solar panels could not provide enough electricity to power spacecraft at Uranus or beyond.  Sunlight is not strong enough far from the sun to provide much power."],
+	'Neptune':["Nuclear energy was critical to power the Voyager 2 mission when it flew by Neptune in 1989.",
+			   "Batteries cannot store enough energy to operate much equipment at great distances from the sun.",
+			   "Solar panels could not provide enough electricity to power spacecraft at Neptune or beyond.  Sunlight is not strong enough far from the sun to provide much power."],
+	'Kuiper Belt': ["Select a planet and choose your energy to travel.",
+					"Select a planet and choose your energy to travel.",
+					"Select a planet and choose your energy to travel."],
+	'Space': ["Select a planet and choose your energy to travel.",
+			  "Select a planet and choose your energy to travel.",
+			  "Select a planet and choose your energy to travel."]
 }
 
 PLANET_LIGHT = {
 	'Sun': ["out","out","out"],
-    'Mercury': ["red","green","green"],
-    'Venus': ["green","green","green"],
-    'Earth': ["red","green","green"],
-    'Mars': ["green","green","green"],
-    'Jupiter': ["green","green","green"],
-    'Saturn': ["green","green","red"],
-    'Uranus': ["green","red","red"],
-    'Neptune':["green","red","red"],
-    'Kuiper Belt': ["out","out","out"],
-    'Space': ["out","out","out"]
+	'Mercury': ["red","green","green"],
+	'Venus': ["green","green","green"],
+	'Earth': ["red","green","green"],
+	'Mars': ["green","green","green"],
+	'Jupiter': ["green","green","green"],
+	'Saturn': ["green","green","red"],
+	'Uranus': ["green","red","red"],
+	'Neptune':["green","red","red"],
+	'Kuiper Belt': ["out","out","out"],
+	'Space': ["out","out","out"]
 }
 
 GRAYCODE_TABLE = [
-    '0000',
-    '1000',
-    '1001',
-    '0001',
-    '0011',
-    '1011',
-    '1010',
-    '0010',
-    '0110',
-    '1110',
-    '1111',
+	'0000',
+	'1000',
+	'1001',
+	'0001',
+	'0011',
+	'1011',
+	'1010',
+	'0010',
+	'0110',
+	'1110',
+	'1111',
 ]
 
-BUTTON_NAMES    = ['NUCLEAR', 'BATTERY', 'SOLAR', 'INFEASIBLE']
+BUTTON_NAMES	= ['NUCLEAR', 'BATTERY', 'SOLAR', 'INFEASIBLE']
 BUTTON_PINS_IN  = [ 4, 17, 27, 22]
 BUTTON_PINS_OUT = [ 5,  6, 13, 19, 26]
 GRAYCODE_PINS = [25, 18, 23, 24]
 
 ##################################
-RUNNING        = False
+RUNNING		= False
 global start_time
 global last_grayCode
 global timeoutRunning
@@ -154,19 +154,19 @@ def drawText(_screen, _text, _x, _y, _font, _color, _isRight):
 		raise e
 
 def changeLight(_index):
-    chIndex = 0
-    while chIndex < len(BUTTON_PINS_OUT):
-        GPIO.output(BUTTON_PINS_OUT[chIndex], 0)
-        chIndex = chIndex + 1
-        
-    if _index < len(BUTTON_PINS_OUT) and _index > -1:
-        GPIO.output(BUTTON_PINS_OUT[_index], 1)          
+	chIndex = 3
+	while chIndex < len(BUTTON_PINS_OUT):
+		if chIndex == _index:
+			GPIO.output(BUTTON_PINS_OUT[chIndex], 1)
+		else 
+			GPIO.output(BUTTON_PINS_OUT[chIndex], 0)
+		chIndex = chIndex + 1
 
 def turnAllLights(onoff):
-    for pin in BUTTON_PINS_OUT:
-        GPIO.output(pin, onoff)
-    GPIO.output(BUTTON_PINS_OUT[3], 0)
-    GPIO.output(BUTTON_PINS_OUT[4], 0)
+	for pin in BUTTON_PINS_OUT:
+		GPIO.output(pin, onoff)
+	GPIO.output(BUTTON_PINS_OUT[3], 0)
+	GPIO.output(BUTTON_PINS_OUT[4], 0)
 
 def blinkLights():
 	global timeoutRunning
@@ -180,7 +180,7 @@ def blinkLights():
 def init():
 	global screen
 	global font
-    global fontHL
+	global fontHL
 	
 	pygame.init()
 	pygame.mouse.set_cursor((8,8),(0,0),(0,0,0,0,0,0,0,0),(0,0,0,0,0,0,0,0))
@@ -188,8 +188,8 @@ def init():
 
 	fontHL = pygame.font.Font(pygame.font.match_font('FS Aldrin'), 60)
 	font = pygame.font.Font(pygame.font.match_font('FS Aldrin'), 40)
-    fontHL.set_underline(True)
-    fontHL.set_bold(True)
+	fontHL.set_underline(True)
+	fontHL.set_bold(True)
 	
 	GPIO.setmode(GPIO.BCM)
 	
@@ -231,7 +231,7 @@ def findCorrectText(pl, _txts, _lights):
 			elif (_lights[i] == "green"):
 				changeLight(4)
 			else:
-				turnAllLights(0)
+				changeLight(0)
 	return _txt
 
 def timeout():
@@ -252,7 +252,7 @@ def timeout():
 def update():
 	global start_time
 	global last_grayCode
-    
+	
 	screen.fill(pygame.Color(COLOR_BG))
 	
 	graycode = [0,0,0,0]
@@ -271,9 +271,9 @@ def update():
 			#drawText(screen, "GREYCODE " + str(GRAYCODE_PINS[i]), 400, 300+i*10, font, pygame.Color("#ffffff"), False)
 			graycode[i] = 1
 			
-        if not GPIO.input(GRAYCODE_PINS[i]):
-            graycode[i] = 0
-            
+		if not GPIO.input(GRAYCODE_PINS[i]):
+			graycode[i] = 0
+			
 	str_graycode = makeGrayCodeString(graycode)
 	#drawText(screen, "GREYCODE " + str(graycode), 400, 400, font, pygame.Color("#ffffff"), False)
 	
@@ -294,10 +294,10 @@ def update():
 		
 		drawText(screen, ""+ planet, 30, 30, fontHL, pygame.Color("#000000"), False)
 		planettext = findCorrectText(planet, text_arr, light_arr)
-    	#drawText(screen, planettext, 50, 150, font, pygame.Color("#ffffff"), False)
-    	textbox = pygame.Rect(30,100, 770, 350)
-    	drawTextBox(screen, planettext, pygame.Color("#000000"), textbox, font, True)
-    	
+		#drawText(screen, planettext, 50, 150, font, pygame.Color("#ffffff"), False)
+		textbox = pygame.Rect(30,100, 770, 350)
+		drawTextBox(screen, planettext, pygame.Color("#000000"), textbox, font, True)
+		
 	pygame.display.update()
 	
 if __name__ == '__main__':
